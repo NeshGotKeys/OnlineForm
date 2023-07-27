@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <base target="_top">
+    <!-- Metro UI -->
+    <link rel="stylesheet" href="https://cdn.korzh.com/metroui/v4/css/metro-all.min.css">
+
+     
+
+  </style>
+  </head>
+  <body>
+
+    
+    <div class="container-small">
+        <!-- content here -->
+        <h1>NATIONAL GOVERNMENT AFFIRMATIVE ACTION FUND</h1>
+
+<div class="grid">
+
+    <form id="contact-form" data-role="validator" action="javascript:"
+      data-on-submit="addRecord">
+     
+               <div class="row">
+          <div class="cell-6 p-1">
+            <div class="form-group">
+                <label>REGISTRATION NAME OF THE GROUP</label>
+                <input name="groupName" type="text" placeholder="NAME OF THE GROUP"
+      class="metro-input" data-validate="required minlength=3"/> 
+            </div>
+           </div>
+           
+            <div class="cell-6 p-1">
+            <label>CATEGORY</label>
+            <select data-role="select" name="category"data-validate="required not=''">
+              <option disabled selected></option>
+              <option>FEMALE</option>
+              <option>YOUTH</option>
+              <option>ELDERLY</option>
+              <option>PWDs</option>
+              <option>OTHERS</option>
+            </select>
+               </div>
+               </div>
+            
+
+          <h1>GEOGRAPHICAL LOCATION OF THE GROUP</h1>
+          <div class="row">
+          <div class="cell-6 p-1">
+              <label>CONSTITUENCY</label>
+              <select data-role="select" name="constituency"
+      class="metro-input" data-validate="required minlength=3">
+                <option disabled selected></option>
+                <option>LAIKIPIA EAST</option>
+                <option>LAIKIPIA NORTH</option>
+                <option>LAIKIPIA WEST</option>
+          </select>
+          </div>
+          <div class="cell-6 p-1">
+          <label>WARD</label>
+          <select data-role="select" name="ward"data-validate="required not=''">
+            <option disabled selected></option>
+            <option>NANYUKI</option>
+            <option>THINGITHU</option>
+            <option>TIGITHI</option>
+            <option>UMANDE</option>
+            <option>NGOBIT</option>
+            <option>OL-MORAN</option>
+            <option>GITHIGA</option>
+            <option>IGWAMITI</option>
+            <option>RUMURUTI</option>
+            <option>MARMANET</option>
+            <option>SALAMA</option>
+            <option>SEGERA</option>
+            <option>SOSIAN</option>
+            <option>MUKOGONDO EAST</option>
+            <option>MUKOGOND0 WEST</option>
+          </select>
+                  </div>
+                  </div>
+                  <div class="row">
+                  <div class="cell-6 p-1">
+                  <label>LOCATION</label>
+                  <select data-role="select" name="location">
+                    <option disabled selected></option>
+
+                     <? for(const category of categories) {?>
+                       <option><?= category ?></option>
+                    <? } ?>
+
+                    
+                  </select>
+                  </div>
+          <div class="cell-6 p-1">
+          <label>SUB-COUNTY</label>
+          <select data-role="select" name="subCounty">
+            <option disabled selected></option>
+            <option>laikipia Central</option>
+            <option>laikipia East</option>
+            <option>laikipia North</option>
+            <option>laikipia West</option>
+            <option>Nyahururu</option>
+            <option>Kirima (newly created)</option>
+          </select>
+          </div>
+          </div>
+          <div class="row">
+          <div class="cell-6 p-1">
+          <label>SUB-LOCATION</label>
+          <select data-role="select" name="subLocation">
+            <option disabled selected></option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+          </select>
+          </div>
+           <div class="cell-6 p-1">
+          <label>NEAREST TRADING CENTRE</label>
+          <select data-role="select" name="tradingCenter">
+            <option disabled selected></option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+          </select>
+          </div>
+          </div>
+          <div class="row">
+          <div class="cell-6 p-1">
+            <label>BRIEF GROUP DESCRIPTION</label>
+            <textarea data-role="textarea" data-auto-size="true" data-max-height="200" name="description"></textarea>
+          </div>
+
+           <div class="cell-6 p-1">
+          <label>PROJECT CATEGORY</label>
+          <select data-role="select" name="projectCategory">
+            <option disabled selected></option>
+            <option>Table banking</option>
+            <option>Value Addition</option>
+            <option>County wide</option>
+          </select>
+          </div>
+          </div>
+
+          <div class="row">
+          <div class="cell-6 p-1">
+            <label>BUDGET BREAKDOWN</label>
+            <textarea data-role="textarea" data-auto-size="true" data-max-height="200" name="budgetBreakdown"></textarea>
+          </div>
+          </div>
+  
+         
+        <div class="row">
+        <div class="cell-12 p-1">
+          <div class="form-group">
+              <button class="button success">Submit</button>
+          </div>
+        </div>  
+      </div>
+     </form>
+
+    <div class="row d-none" id="success-message">
+      <div class="cell-12 p-1">
+        Thanks for applying the NGAAF fund!! <button class="button success" id="back-to-form">Back to Form</button>
+      </div>  
+    </div>
+
+<div class="row d-none" id="progress">
+      <div class="cell-12 p-1">
+         <div data-role="progress" data-type="line"></div>
+         <div data-role="progress" data-type="line" data-small="true"></div>
+      </div>  
+    </div>
+
+       
+
+
+  </div>
+
+  </div>
+
+    <!-- Metro UI -->
+    <script src="https://cdn.korzh.com/metroui/v4/js/metro.min.js"></script>
+    <script>
+      const contactForm = document.getElementById("contact-form")
+      const successMessage = document.getElementById("success-message")
+      const backToForm = document.getElementById("back-to-form")
+      const progress = document.getElementById("progress")
+
+      contactForm.addEventListener("submit",submitData)
+
+      function submitData (e){
+       e.preventDefault()
+       console.log("Form Submitted")
+       console.log(this)
+       
+      }
+
+      function addRecord(){
+        progress.classList.remove("d-none")
+        contactForm.classList.add("d-none")
+
+         google.script.run.withSuccessHandler(() => {
+        contactForm.reset()
+        const selectElements = contactForm.querySelectorAll("select")
+        selectElements.forEach(element => {
+          const tempSelect =  Metro.getPlugin(element,"select")
+          tempSelect.val("")
+          })
+
+          
+          successMessage.classList.remove("d-none")
+          progress.classList.add("d-none")
+
+       }).withFailureHandler(() => {
+        
+       }).acceptData(this)
+      }
+    
+         backToForm.addEventListener("click",() => {
+          contactForm.classList.remove("d-none")
+          successMessage.classList.add("d-none")
+         })
+
+    </script>
+  </body>
+</html>
